@@ -1,0 +1,46 @@
+﻿@model BlogSite.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Post</h4>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Body)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Body)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CharCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CharCount)
+        </dd>
+       
+            @Html.Partial("DetailsComments", Model.Comments)
+       
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Create New Comment", "CreateComment", new { id = Model.Id }) |
+    @Html.ActionLink("Edit Post", "Edit", new {id = Model.Id}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
